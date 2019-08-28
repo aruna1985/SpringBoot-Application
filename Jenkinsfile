@@ -1,4 +1,5 @@
 node{
+def mvnHome
  	stages{
  		stage('getSCM'){
  		 			git 'https://github.com/aruna1985/SpringBoot-Application'
