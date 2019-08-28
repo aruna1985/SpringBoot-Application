@@ -21,6 +21,6 @@ pipeline{
  		 }
  		 stage('deploy'){
  		 
- 		 	bat'"copy C:\\Users\arraja\\Desktop\\JavaWS\\myspringbootapp\\target\\*.war C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps"'
+ 		 	bat'"copy C:/Users/arraja/Desktop/JavaWS/myspringbootapp/target/*.war C:/Program Files/Apache Software Foundation/Tomcat 9.0/webapps"'
  	}
  }
