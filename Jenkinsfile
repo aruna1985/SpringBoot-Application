@@ -6,7 +6,7 @@ node{
  		 }
  		 stage('Build'){
  		 			echo'this is build maven artifact'
- 		 			bat(/"${mvnHome}\bin\mvn -Dmaven.test.failure.ignore.clean package/)
+ 		 			bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore.clean package/)
  		 }
  		 stage('artifact'){
  		 			archive 'target/*.war'
