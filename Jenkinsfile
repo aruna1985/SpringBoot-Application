@@ -2,7 +2,7 @@ node{
 def mvnHome
  	
  		stage('getSCM'){
- 		 			git 'https://github.com/aruna1985/SpringBoot-Application'
+ 		 			git 'https://github.com/aruna1985/SpringBoot-Application.git'
  		 			mvnHome=tool 'Maven' 		
  		 }
  		 stage('Build'){
