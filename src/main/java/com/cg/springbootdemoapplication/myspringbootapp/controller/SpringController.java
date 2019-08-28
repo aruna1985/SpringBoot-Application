@@ -8,6 +8,6 @@ public class SpringController {
 
 	@RequestMapping("/")
 	public String home() {
-		return "My springboot application";
+		return "My springboot application is using devtools in my project";
 	}
 }
