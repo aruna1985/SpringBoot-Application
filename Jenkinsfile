@@ -7,11 +7,11 @@ def mvnHome
  		 }
  		 stage('Build'){
  		 			echo'this is build maven artifact'
- 		 			bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore.clean package/)
+ 		 			bat(/"${mvnHome}\bin\mvn" clean package/)
  		 }
  		
  		 stage('deploy'){
- 		 		bat '''copy "C:\\Users\\arraja\\Desktop\\JavaWS\\myspringbootapp\\target\\myspringbootapp-0.0.1-SNAPSHOT.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps"''' 
+ 		 		bat '''copy "C:\\Program Files (x86)\\Jenkins\\workspace\\MyAppPipeline\\target\\myspringbootapp-0.0.1-SNAPSHOT.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps"''' 
  		}
  
  }
