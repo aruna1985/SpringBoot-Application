@@ -11,7 +11,7 @@ def mvnHome
  		 }
  		
  		 stage('deploy'){
- 		 		bat '''copy "C:\\Users\\arraja\\Desktop\\JavaWS\\myspringbootapp\\target\\*.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps"''' 
+ 		 		bat '''copy "C:\\Users\\arraja\\Desktop\\JavaWS\\myspringbootapp\\target\\myspringbootapp-0.0.1-SNAPSHOT.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps"''' 
  		}
  
  }
