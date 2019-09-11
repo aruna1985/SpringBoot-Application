@@ -13,7 +13,7 @@ def mvnHome
  		
  		stage ('cleanup') {
 		 
-		  dir('C:\Program Files (x86)\Jenkins\workspace') {
+		  dir("C:\Program Files (x86)\Jenkins\workspace") {
 		  sh "rm -rf C:\Program Files (x86)\Jenkins\workspace\MyAppPipeline@tmp"
   		}
   	
