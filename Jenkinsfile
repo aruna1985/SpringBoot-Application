@@ -8,9 +8,16 @@ def mvnHome
  		 stage('Build'){
  		 			echo'this is build maven artifact'
  		 			bat(/"${mvnHome}\bin\mvn" clean package/)
- 		 			deletedir()
+
  		 }
  		
+ 		stage ('cleanup') {
+		 
+		  dir('C:\Program Files (x86)\Jenkins\workspace') {
+		  sh "rm -rf C:\Program Files (x86)\Jenkins\workspace\MyAppPipeline@tmp"
+  		}
+  	
+	}
  		
  		 stage('deploy'){ 		 		
  		 		 sshagent(['tomcat-dev']) {
