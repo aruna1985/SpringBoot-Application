@@ -13,9 +13,10 @@ def mvnHome
  		
  		stage ('cleanup') {
 		 
-		  deleteDir()
+		   dir("${env.WORKSPACE}@tmp") {
+        	deleteDir()
   		}
-  	
+  	}
 			
  		 stage('deploy'){ 		 		
  		 		 sshagent(['tomcat-dev']) {
