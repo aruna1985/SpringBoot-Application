@@ -13,7 +13,7 @@ def mvnHome
  		
  		 stage('deploy'){ 		 		
  		 		 sshagent(['tomcat-dev']) {
-       			  sh 'scp -o StrictHostKeyChecking=no C:/Users/arraja/.jenkins/workspace/MyAppPipeline/target/*.war ec2-user@3.17.59.36:/opt/apache-tomcat-8.5.45/webapps/'
+       			  sh 'scp -o StrictHostKeyChecking=no C:/Users/arraja/.jenkins/workspace/MyAppPipeline/target/*.war ec2-user@3.19.234.159:/opt/tomcat8/webapps/'
      	 } 
  		}
  
