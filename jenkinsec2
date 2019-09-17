@@ -1,0 +1,31 @@
+node{
+	     
+	      stage('Checkout'){
+	       //git 'https://github.com/avinashkr123/springbootapp'
+	         git credentialsId: 'github', url: 'https://github.com/aruna1985/SpringBoot-Application.git'
+	
+	
+	      }  
+	      stage('Build'){
+	         def mvn_version = 'maven'
+			withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+			sh "mvn clean package"
+	                  //sh "mvn clean package -DskipTests"
+	      }
+	      }
+	     
+	      
+	      //deploy on tomcat in EC2 
+	     stage('Deploy from Jenkins on EC2 to Tomcat on EC2'){
+	     //sshagent(['fac7b8cb-d932-43ae-a55c-eb3b087c30c4']) 
+	      sshagent(['tomcat-dev']) 
+	      {
+	         sh 'scp -o StrictHostKeyChecking=no target/myspringbootapp-0.0.1-SNAPSHOT.war ec2-user@52.66.9.212:/opt/tomcat9/webapps/'
+
+	         
+	       
+	      }
+	   } 
+	   
+	 }
+
