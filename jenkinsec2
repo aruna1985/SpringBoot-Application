@@ -2,7 +2,7 @@ node{
 	     
 	      stage('Checkout'){
 	       //git 'https://github.com/avinashkr123/springbootapp'
-	         git credentialsId: 'github', url: 'https://github.com/aruna1985/SpringBoot-Application.git'
+	         git credentialsId: 'jenkins-git', url: 'https://github.com/aruna1985/SpringBoot-Application.git'
 	
 	
 	      }  
