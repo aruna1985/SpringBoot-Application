@@ -17,6 +17,7 @@
 	</parent>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   
   </properties>
 
   <dependencies>
@@ -41,5 +42,7 @@
             <scope>provided</scope>
         </dependency>
   </dependencies>
-  
+  <build>
+  	<finalName>MyDockerSpringBoot</finalName>
+  </build>
 </project>
