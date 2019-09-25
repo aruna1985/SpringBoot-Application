@@ -3,11 +3,13 @@ def mvnHome
  	
  		stage('getSCM'){
  		 			git 'https://github.com/aruna1985/SpringBoot-Application.git'
- 		 			mvnHome=tool 'Maven' 		
+ 		 			 		
  		 }
  		 stage('Build'){
  		 			echo'this is build maven artifact'
- 		 			bat(/"${mvnHome}\bin\mvn" clean package/)
+ 		 			mvnHome=tool 'Maven'
+ 		 			def mvnCmd="${mvnHome}/bin/mvn"
+ 		 			sh "${mvnCmd} clean package"
 
  		 }
  		 stage('Build Docker image'){
