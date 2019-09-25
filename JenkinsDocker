@@ -1,0 +1,28 @@
+node{
+def mvnHome
+ 	
+ 		stage('getSCM'){
+ 		 			git 'https://github.com/aruna1985/SpringBoot-Application.git'
+ 		 			mvnHome=tool 'Maven' 		
+ 		 }
+ 		 stage('Build'){
+ 		 			echo'this is build maven artifact'
+ 		 			bat(/"${mvnHome}\bin\mvn" clean package/)
+
+ 		 }
+ 		 stage('Build Docker image'){
+ 		 	sh 'docker build -t aruna/DockerSpringBoot:1.0 .'
+ 		 }
+ 		 stage('push docker to Dockerhub'){
+ 		 	withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerhubpwd')]) {
+ 		 		sh "docker login -u arunaraja -p ${dockerhubpwd}"
+ 		 	}
+ 		 	sh 'docker push aruna/DockerSpringBoot:1.0'
+ 		 }
+ 		 stage('Run container on Dev server'){
+ 		 	def dockerRun='docker run -p 8081:8080 -d --name mywebapplication arunaraja/DockerSpringBoot:1.0'
+ 		 	sshagent(['tomcat-dev']) {
+       			  sh "scp -o StrictHostKeyChecking=no ec2-52-66-9-212.ap-south-1.compute.amazonaws.com ${dockerRun}"
+ 		 	}
+ 		}
+ 	}
