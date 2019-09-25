@@ -22,7 +22,7 @@ def mvnHome
  		 	sh 'docker push arunaraja/dockerspringboot:1.0'
  		 }
  		 stage('Run container on Dev server'){
- 		 	def dockerRun='docker run -p 8081:8181 -d --name mywebapplication arunaraja/dockerspringboot:1.0'
+ 		 	def dockerRun='docker run -p 8081:8181 --name mywebapplication arunaraja/dockerspringboot:1.0'
  		 	sshagent(['tomcat-dev']) {
        			  sh "scp -o StrictHostKeyChecking=no ec2-13-232-22-188.ap-south-1.compute.amazonaws.com ${dockerRun}"
  		 	}
