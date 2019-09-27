@@ -1,3 +1,3 @@
 FROM java:8
-ADD /MyDockerSpringBoot.jar //
+ADD target/MyDockerSpringBoot.jar //
 ENTRYPOINT ["java", "-jar", "/MyDockerSpringBoot.jar"]
