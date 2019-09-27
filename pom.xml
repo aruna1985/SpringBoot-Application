@@ -5,7 +5,7 @@
   <groupId>com.cg.springbootdemoapplication</groupId>
   <artifactId>myspringbootapp</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
 
   <name>myspringbootapp</name>
   <url>http://maven.apache.org</url>
