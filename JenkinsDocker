@@ -24,7 +24,7 @@ def mvnHome
  		 stage('Run container on Dev server'){
  		 	def dockerRun='docker run -p 8081:8181 -name dockerspringboot arunaraja/dockerspringboot:1.0'
  		 	sshagent(['tomcat-dev']) {
-       			  sh "scp -o StrictHostKeyChecking=no ec2-user@172.31.9.254 ${dockerRun}"
+       			  sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.9.254 ${dockerRun}"
  		 	}
  		}
  	}
