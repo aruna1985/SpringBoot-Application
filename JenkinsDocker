@@ -22,11 +22,10 @@ def mvnHome
  		 	sh 'docker push arunaraja/dockerspringboot:1.0'
  		 }
  		 stage('Run container on Dev server'){
- 		 	def dockerStop='docker stop dockerspringboot'
- 		 	def dockerRemove='docker rm dockerspringboot'
+ 		 	
  		 	def dockerRun='docker run -p 8081:8181 --name dockerspringboot arunaraja/dockerspringboot:1.0'
  		 	sshagent(['tomcat-dev']) {
-       			  sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.9.254 ${dockerStop} ${dockerRemove} ${dockerRun}"
+       			  sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.9.254 ${dockerRun}"
  		 	}
  		}
  	}
