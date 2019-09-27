@@ -23,7 +23,7 @@ def mvnHome
  		 }
  		 stage('Run container on Dev server'){
  		 	def containerName="dockerspringboot"
- 		 	def previousContainer="${docker ps --all --quiet --filter=name="$containerName"}"
+ 		 	def previousContainer="${docker ps --all --quiet --filter name="$containerName"}"
  		 	if[-n "$previousContainer"]; then
  		 		docker stop $previousContainer && docker rm $previousContainer 
  		 	def dockerRun='docker run -p 8081:8181 --name dockerspringboot arunaraja/dockerspringboot:1.0'
